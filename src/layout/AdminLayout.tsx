@@ -1,12 +1,24 @@
-import React from 'react'
-import { Outlet } from 'react-router'
+import { AppSidebar } from "@/components/app-sidebar"
 
-type Props = {}
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar"
 
-function AdminLayout({}: Props) {
+
+export default function AdminLayout() {
   return (
-    <div><Outlet /></div>
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "calc(var(--spacing) * 72)",
+          "--header-height": "calc(var(--spacing) * 12)",
+        } as React.CSSProperties
+      }
+    >
+
+      <div>Hello</div>
+      <AppSidebar variant="inset" />
+    </SidebarProvider>
   )
 }
-
-export default AdminLayout
